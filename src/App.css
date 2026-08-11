@@ -34,3 +34,7 @@
 .light.green {
   background-color: green;
 }
+
+.active { 
+  opacity: 0.3; 
+}
