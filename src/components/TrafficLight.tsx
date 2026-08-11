@@ -6,11 +6,12 @@ const TrafficLight = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setLights((prevLights) => {
-        return [
-          prevLights[2],
-          prevLights[0],
-          prevLights[1],
-        ];
+        const newLights = [...prevLights];
+
+        const firstLight = newLights.shift();
+        newLights.push(firstLight);
+
+        return newLights;
       });
     }, 3000);
 
