@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 const TrafficLight = () => {
@@ -29,7 +30,7 @@ const TrafficLight = () => {
 
         return newLights;
       });
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -60,3 +61,4 @@ const TrafficLight = () => {
 };
 
 export default TrafficLight;
+
