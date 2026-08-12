@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MyInput from "./Myinput";
 
 const NewModal = () => {
   const [modal, setModal] = useState(false);
@@ -26,6 +27,7 @@ const NewModal = () => {
                 illo eaque excepturi. Dolor officia a excepturi dolorem et
                 eveniet, harum qui inventore!
               </p>
+              <MyInput/>
               <button onClick={closeModal} className="close-modal">
                 close modal
               </button>
