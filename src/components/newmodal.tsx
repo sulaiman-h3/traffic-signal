@@ -3,13 +3,16 @@ import { useState } from "react";
 const NewModal = () => {
   const [modal, setModal] = useState(false);
 
-  function taggle() {
-    setModal(!modal);
+  function openModal() {
+    setModal(true);
+  }
+  function closeModal() {
+    setModal(false);
   }
 
   return (
     <>
-      <button onClick={taggle} className="btn-modal">
+      <button onClick={openModal} className="btn-modal">
         Open a modal
       </button>
       {modal && (
@@ -23,7 +26,7 @@ const NewModal = () => {
                 illo eaque excepturi. Dolor officia a excepturi dolorem et
                 eveniet, harum qui inventore!
               </p>
-              <button onClick={taggle} className="close-modal">
+              <button onClick={closeModal} className="close-modal">
                 close modal
               </button>
             </div>
