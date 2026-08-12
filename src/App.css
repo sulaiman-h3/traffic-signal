@@ -57,7 +57,7 @@
   position: absolute;
   top:40%;
   left: 40%;
-  background-color: antiquewhite;
+  background-color:white;
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 400px;
@@ -72,4 +72,20 @@
 }
 .paragraph{
   color: black;
+}
+.first-name{
+  flex-direction: column;
+}
+.last-name{
+
+}
+.form-container{
+
+}
+.submit{
+font-size:15px;
+background-color: azure;
+color: black;
+border:1px solid;
+border-radius:6px;
 }

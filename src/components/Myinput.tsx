@@ -1,11 +1,13 @@
+import { useState } from "react";
 const MyInput  = () => {
-function handleinputchange() {
-alert('you changed the name');
+    const [myInputValue, setMyInputValue]= useState("");
+function handleinputchange(event) {
+    setMyInputValue(event.target.value);
 }
     return (
         <div>
             <label>Your Name</label>
-            <input onChange={handleinputchange} type="text" />
+            <input value={myInputValue} onChange={handleinputchange} type="text" />
         </div>
     )
 }
