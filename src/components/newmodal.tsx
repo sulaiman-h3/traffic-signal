@@ -9,26 +9,27 @@ const NewModal = () => {
 
   return (
     <>
-     <button onClick={taggle} className="btn-modal">
+      <button onClick={taggle} className="btn-modal">
         Open a modal
       </button>
-    {modal && (<div className="modal">
-        <div className="overlay">
-          <div className="modal-content">
-            <h2>Hello Modal</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Distinctio aut et minus fuga aspernatur soluta asperiores odit
-              illo eaque excepturi. Dolor officia a excepturi dolorem et
-              eveniet, harum qui inventore!
-            </p>
-            <button onClick={taggle} className="close-modal">close modal</button>
+      {modal && (
+        <div className="modal">
+          <div>
+            <div className="modal-content">
+              <h2 className="paragraph">Hello Modal</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Distinctio aut et minus fuga aspernatur soluta asperiores odit
+                illo eaque excepturi. Dolor officia a excepturi dolorem et
+                eveniet, harum qui inventore!
+              </p>
+              <button onClick={taggle} className="close-modal">
+                close modal
+              </button>
+            </div>
           </div>
         </div>
-      </div>)}
-     
-
-      
+      )}
     </>
   );
 };
