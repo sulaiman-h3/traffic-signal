@@ -7,6 +7,10 @@ const NewModal = () => {
     setModal(true);
   }
 
+  function closeModal() {
+    setModal(false);
+  }
+
   return (
     <>
       <button onClick={openModal}>Open a modal</button>
@@ -14,7 +18,8 @@ const NewModal = () => {
       {modal && (
         <div className="modal">
           <h2>Done</h2>
-          <p>what's the next step??</p>
+          <p>What's the next step?</p>
+          <button onClick={closeModal}>Close</button>
         </div>
       )}
     </>
