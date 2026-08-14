@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const NewModal = () => {
   const [modal, setModal] = useState(false);
-  const [firstNameValue, setfirstNameValu]= useState("");
-  const [lastname, setLastNameValue]=useState("");
-  const[greating, setGreating]= useState("");
-
+  const [firstNameValue, setfirstNameValu] = useState("");
+  const [lastname, setLastNameValue] = useState("");
+  const [greating, setGreating] = useState("");
+  const emailRef = useRef();
 
   function openModal() {
     setModal(true);
@@ -15,13 +15,15 @@ const NewModal = () => {
   }
   function handlefirstname(event) {
     setfirstNameValu(event.target.value);
-}
-function handleLastName (event) {
+  }
+  function handleLastName(event) {
     setLastNameValue(event.target.value);
-}
-function handleGreating() {
-  setGreating(`hello ${firstNameValue} ${lastname}`);
-}
+  }
+  function handleGreating() {
+    setGreating(
+      `Hello ${firstNameValue} ${lastname}, your email is ${emailRef.current.value}`,
+    );
+  }
 
   return (
     <>
@@ -32,7 +34,7 @@ function handleGreating() {
         <div className="modal">
           <div>
             <div className="modal-content">
-              <h2 className="paragraph">Hello Modal</h2>
+              <h2 className="paragraph">WELCOME!</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Distinctio aut et minus fuga aspernatur soluta asperiores odit
@@ -40,29 +42,39 @@ function handleGreating() {
                 eveniet, harum qui inventore!
               </p>
               <div className="form-container">
-              <div className="first-name">
-                  <label>Your First Name</label>
-                <input
-                  value={firstNameValue}
-                  onChange={handlefirstname}
-                  type="text"
-                />
-              </div>
-                <div className="last-name">
-                  <label htmlFor="">Your Last Name</label>
-                  <input
+                <div className="input-con">
+                  <label className="name">Your First Name</label>
+                  <input className="input"
+                    value={firstNameValue}
+                    onChange={handlefirstname}
+                    type="text"
+                  />
+                </div>
+                <div className="input-con">
+                  <label className="name">Your Last Name</label>
+                  <input className="input"
                     value={lastname}
                     onChange={handleLastName}
                     type="text"
                   />
-                  <button className="submit" onClick={handleGreating} type="submit">Submit</button>
+                  <div className="input-con">
+                    <label className="name">Your Email</label>
+                    <input className="input" ref={emailRef} type="email" />
+                  </div>
+                  <button
+                    className="submit"
+                    onClick={handleGreating}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
                 </div>
               </div>
               <div>
                 <p>{greating}</p>
               </div>
               <button onClick={closeModal} className="close-modal">
-                close modal
+                X
               </button>
             </div>
           </div>
