@@ -11,7 +11,9 @@ const TrafficLight = () => {
         const newLights = [...prevLights];
 
         const firstLight = newLights.shift();
-        newLights.push(firstLight);
+        if (firstLight) {
+          newLights.push(firstLight);
+        }
 
         return newLights;
       });
@@ -26,7 +28,9 @@ const TrafficLight = () => {
         const newLights = [...prevLights];
 
         const firstLight = newLights.shift();
-        newLights.push(firstLight);
+        if (firstLight) {
+          newLights.push(firstLight);
+        }
 
         return newLights;
       });

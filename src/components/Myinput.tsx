@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 
 const MyForm = () => {
     const [firstInput, setfirstInput]=useState("");
     const [lastInput, setlastInput]= useState("");
-    function handleFirstInput(event){
+    function handleFirstInput(event: ChangeEvent<HTMLInputElement>){
         setfirstInput(event.target.value)
     }
-      function handleLastInput(event){
+      function handleLastInput(event: ChangeEvent<HTMLInputElement>){
         setlastInput(event.target.value)
     }
     return (
       <>
-        <form onSubmit={(event)=> {
+        <form onSubmit={(event: FormEvent<HTMLFormElement>)=> {
             event.preventDefault();
         }}>
             <div style={{padding:'10px'}}>

@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-const MyForm = () =>{
-
-const [form, setform]=useState("")
+const MyForm = () => {
 
     return(
 <div>
