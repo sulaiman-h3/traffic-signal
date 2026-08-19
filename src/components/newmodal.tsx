@@ -2,8 +2,8 @@ import { useState, useRef } from "react";
 
 const NewModal = () => {
   const [modal, setModal] = useState(false);
-const firstNameRef = useRef(null);
-const lastNameRef = useRef(null);
+  const [firstNameValue, setFirstNameValu] = useState("");
+  const lastNameRef = useRef(null);
   const [greating, setGreating] = useState("");
   const emailRef = useRef(null);
 
@@ -12,6 +12,9 @@ const lastNameRef = useRef(null);
   };
   const closeModal = () => {
     setModal(false);
+  };
+  const handleFirstName = (event) => {
+    setFirstNameValu(event.target.value);
   };
   const handleGreating = () => {
     const firstName = firstNameRef.current.value;
@@ -41,17 +44,14 @@ const lastNameRef = useRef(null);
                   <label className="name">Your First Name</label>
                   <input
                     className="input"
-                    ref={firstNameRef}
+                    onChange={handleFirstName}
+                    value={firstNameValue}
                     type="text"
                   />
                 </div>
                 <div className="input-con">
                   <label className="name">Your Last Name</label>
-                  <input
-                    className="input"
-                    ref = {lastNameRef}
-                    type="text"
-                  />
+                  <input className="input" ref={lastNameRef} type="text" />
                   <div className="input-con">
                     <label className="name">Your Email</label>
                     <input className="input" ref={emailRef} type="email" />
@@ -60,6 +60,7 @@ const lastNameRef = useRef(null);
                     className="submit"
                     onClick={handleGreating}
                     type="submit"
+                    disabled={firstNameValue === ""}
                   >
                     Submit
                   </button>
@@ -80,16 +81,6 @@ const lastNameRef = useRef(null);
 };
 
 export default NewModal;
-
-
-
-
-
-
-
-
-
-
 
 // import { useState, useRef } from "react";
 
