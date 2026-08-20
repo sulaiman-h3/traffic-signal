@@ -1,5 +1,14 @@
-import { useState, useRef } from "react";
+import { useState, useRef, forwardRef } from "react";
 
+const LastName = forwardRef((_, ref) => {
+  return (
+    <div className="input-con">
+      <label className="name">Your Last Name</label>
+
+      <input className="input" ref={ref} type="text" />
+    </div>
+  );
+});
 const NewModal = () => {
   const [modal, setModal] = useState(false);
   const [firstNameValue, setFirstNameValu] = useState("");
@@ -17,10 +26,9 @@ const NewModal = () => {
     setFirstNameValu(event.target.value);
   };
   const handleGreating = () => {
-    const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
     const email = emailRef.current?.value ?? "";
-    setGreating(`Hello ${firstName} ${lastName}, your email is ${email}`);
+    setGreating(`Hello ${firstNameValue} ${lastName}, your email is ${email}`);
   };
 
   return (
@@ -50,8 +58,7 @@ const NewModal = () => {
                   />
                 </div>
                 <div className="input-con">
-                  <label className="name">Your Last Name</label>
-                  <input className="input" ref={lastNameRef} type="text" />
+                  <LastName ref={lastNameRef} />
                   <div className="input-con">
                     <label className="name">Your Email</label>
                     <input className="input" ref={emailRef} type="email" />
